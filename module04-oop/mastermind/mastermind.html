@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mastermind</title>
+    <script src="move.js"></script>
     <script src="mastermind.js"></script>
     <script src="view.js"></script>
     <script src="application.js"></script>
@@ -17,5 +18,16 @@
     <label for="guess">Guess:</label>
     <input type="number" min=100 id="guess" name="guess">
     <button id="play">Play</button>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Guess</th>
+            <th>Evaluation</th>
+        </tr>
+    </thead>
+    <tbody id="moves">
+
+    </tbody>
+</table>
 </body>
 </html>

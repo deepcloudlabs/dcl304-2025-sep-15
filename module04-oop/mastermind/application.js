@@ -1,6 +1,8 @@
+let mastermind;
+let view;
 window.onload = () => {
     console.log("Application is just started!");
-    let view = new View();
-    let mastermind = new Mastermind(view);
+    view = new View();
+    mastermind = new Mastermind(view);
     view.init(mastermind);
 }
