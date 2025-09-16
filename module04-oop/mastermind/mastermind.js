@@ -1,3 +1,4 @@
+//14:35
 class Mastermind {
     constructor(view) {
         this.initialize_game_level({level: 3});
@@ -18,10 +19,19 @@ class Mastermind {
     update_view = () => {
         this.view.refresh(this);
     }
+    
+    create_random_digit = (min,max) => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
 
     create_secret = (level) => {
-        //TODO: create an integer with distinct #level digits
-        return 549;
+        const digits = [this.create_random_digit(1,9)];
+        while(digits.length < level) {
+            const digit = this.create_random_digit(0,9);
+            if(digits.includes(digit)) continue;
+            digits.push(digit);
+        }
+        return Number(digits.join(''));
     }
 
     play = (guess) => {
