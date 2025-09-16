@@ -17,18 +17,34 @@ class View {
         this.timeout.innerHTML = mastermind.counter;
         this.clear(this.moves);
         for (let move of mastermind.moves) {
-            //TODO: <tr>
+            let rows= this.moves.insertRow();
+            let cellGuess= rows.insertCell(0);
+            cellGuess.appendChild(
+                document.createTextNode(move.guess)
+            );
+            let cellMessage= rows.insertCell(1);
+            cellMessage.appendChild(
+                document.createTextNode(move.evaluation)
+            );
         }
         //TODO: handle other view elements
     }
 
     clear = (element) => {
-        //TODO: clear element content
+        let node = element;
+        while (element.hasChildNodes()) {
+            if (node.hasChildNodes()) {
+                node = node.lastChild;
+            } else {
+                node = node.parentNode;
+                node.removeChild(node.lastChild);
+            }
+        }
     }
 
     init = (mastermind) => {
         this.mastermind = mastermind;
-        this.playButton.addEventListener("click",this.play);
+        this.playButton.addEventListener("click", this.play);
     }
     play = (event) => {
         this.mastermind.play(Number(this.guess.value));
