@@ -23,11 +23,15 @@ console.log(total_full_time_it_salaries);
 // from employees
 // where department = "IT" and fulltime
 // declarative programming -> SQL, functional programming
+const if_it_employee = employee => employee.department === "IT";
+const if_full_time_employee = employee => employee.fulltime;
+const to_salary = employee => employee.salary;
+const to_sum = (a, b) => a + b;
 total_full_time_it_salaries =
-employees.filter(employee => employee.department === "IT")
-         .filter(employee => employee.fulltime)
-         .map(employee => employee.salary)
-         .reduce((total, salary) => total+salary, 0);
+employees.filter(if_it_employee)
+         .filter(if_full_time_employee)
+         .map(to_salary)
+         .reduce(to_sum, 0);
 console.log(total_full_time_it_salaries);
 // C#   -> LINQ
 // Java -> Stream API
