@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="exercise02.js"></script>
+    <script>
+        window.onload = function() {
+            function fun(e) {
+                console.log(`Event triggered: ${JSON.stringify(e)}`);
+            }
+            setInterval(()=>{
+                document.querySelector("#my-button").dispatchEvent(myEvent) ;
+            }, 3_000);
+            document.querySelector("#my-button").addEventListener("my-event", fun);
+        }
+    </script>
+</head>
+<body>
+    <button id="my-button">Click Me!</button>
+</body>
+</html>
