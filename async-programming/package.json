@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "exercise01.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "ws": "8.18.3"
+    "ws": "8.18.3",
+    "rxjs": "7.4.0"
   },
   "repository": {
     "type": "git",
